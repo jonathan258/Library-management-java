@@ -5,8 +5,8 @@ package com.mycompany.librarymanagementsystem;
  * @author Jonathan Campebll
  */
 public class User {
-    private String name;
-    private String userID;
+    private final String name;
+    private final  String userID;
 
 
 //constuctor
