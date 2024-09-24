@@ -1,27 +1,23 @@
 package com.mycompany.librarymanagementsystem;
 
-/**
- *
- * @author JOnathan
- */
 public class Members extends User {
-    
     public Members(String name, String userID) {
         super(name, userID);
     }
-    
-    /**
-     *@param
-     * @param library
-     * @param book
-     */
-    public void borrowBook(Library library, Book book){
-    if(book.isIsAvailable()){
-    book.borrow();
-     }
+
+    public void borrowBook(Library library, Book book) {
+        if (book.isIsAvailable()) {
+            book.borrow();
+        } else {
+            throw new IllegalStateException("This book is not available for borrowing.");
+        }
     }
-    
-    public void returnBook(Book book){
-    book.returnBook();
+
+    public void returnBook(Book book) {
+        if (!book.isIsAvailable()) {
+            book.returnBook();
+        } else {
+            throw new IllegalStateException("This book was not borrowed.");
+        }
     }
 }
